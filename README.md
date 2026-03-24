@@ -15,6 +15,59 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
+# Prompt
+Texto del header: "Maximiliano Lira 6-I"
+
+Color de Fondo: Celeste claro (Color(0xFFB3E5FC)).
+
+Estilo: Texto en color black87 con fuente en negrita.
+
+El cuerpo de la aplicación utiliza una cuadrícula dinámica (GridView.builder) optimizada:
+
+Columnas: 2 (Dos).
+
+Filas: 7 (Siete), sumando un total de 14 productos.
+
+Proporción (Aspect Ratio): 0.75, para un diseño vertical estilizado.
+
+Espaciado: 12px entre cada tarjeta.
+
+Cada cuadro incluye:
+
+Imagen Dinámica: Cargada desde GitHub con indicador de carga.
+
+Nombre del Producto: Centrado y en negrita.
+
+Sistema de Calificación: Una fila de 5 estrellas doradas (Icons.star en color amber) que representan la calidad del producto.
+
+Jamon: https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Jamon.jpg
+
+Leche: https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/L1.png
+
+Jugo: https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Jugo.jpg
+
+Mantequilla: https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Mantequilla.png
+
+Queso: https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Manchego.jfif
+
+Tocino: https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Tocino.jpg
+
+Yogurt: https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Yogurt.png
+
+Crema: https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Crema.jfif
+
+Gelatina: https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Gelatina.jfif
+
+Media Crema: https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Media%20Crema.jfif
+
+Queso Panela: https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Queso.png
+
+Leche Polvo: https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Polvo.jfif
+
+Lechita Cacao: https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Leche%20C.png
+
+Margarina: https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Margarina.png
+
 # Imagenes
 <img width="458" height="719" alt="image" src="https://github.com/user-attachments/assets/8e70fbc2-44eb-495a-9e24-920f0d7b636b" />
 <img width="434" height="719" alt="image" src="https://github.com/user-attachments/assets/66367e7c-92f3-4411-ace9-e7ffd7c3dfc6" />

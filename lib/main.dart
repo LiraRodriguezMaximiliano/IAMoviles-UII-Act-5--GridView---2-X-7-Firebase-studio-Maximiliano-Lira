@@ -1,122 +1,191 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const ProyectoLalaApp());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class ProyectoLalaApp extends StatelessWidget {
+  const ProyectoLalaApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
+      title: 'Proyecto Lala - Catálogo de Red',
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: const PantallaCatalogoLala(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class PantallaCatalogoLala extends StatelessWidget {
+  const PantallaCatalogoLala({super.key});
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
+  // --- DATOS DEL PROYECTO ---
 
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
+  // 1. Lista de los 14 nombres de productos solicitados
+  final List<String> nombresProductos = const [
+    "Jamon", "Leche", "Jugo", "Mantequilla", "Queso", "Tocino", "Yogurt",
+    "Crema", "Gelatina", "Media Crema", "Queso Panela", "Leche Polvo",
+    "Lechita Cacao", "Margarina"
+  ];
 
-  final String title;
+  // 2. Lista de URLs de REFERENCIA (Imágenes reales de Lala de la red)
+  // Nota: Estas URLs son públicas y podrían cambiar, pero sirven de ejemplo perfecto.
+  final List<String> urlsImagenesLala = const [
+    // Jamon
+    "https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Jamon.jpg",
+    // Leche
+    "https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/L1.png",
+    // Jugo
+    "https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Jugo.jpg",
+    // Mantequilla
+    "https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Mantequilla.png",
+    // Queso
+    "https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Manchego.jfif",
+    // Tocino
+    "https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Tocino.jpg",
+    // Yogurt
+    "https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Yogurt.png",
+    // Crema
+    "https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Crema.jfif",
+    // Gelatina
+    "https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Gelatina.jfif",
+    // Media Crema
+    "https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Media%20Crema.jfif",
+    // Queso Panela
+    "https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Queso.png",
+    // Leche Polvo
+    "https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Polvo.jfif",
+    // Batidillo (referencia de producto batido)
+    "https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Leche%20C.png",
+    // Margarina
+    "https://raw.githubusercontent.com/LiraRodriguezMaximiliano/imagenes-para-flutter-6I-11-02-26/refs/heads/main/Margarina.png"
+  ];
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+  // --- CONSTRUCCIÓN DE LA PANTALLA ---
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        // Header azul clarito solicitado
+        backgroundColor: const Color(0xFFB3E5FC),
+        elevation: 1,
+        title: const Text(
+          "Maximiliano Lira 6-I",
+          style: TextStyle(
+            color: Colors.black87,
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ),
+        ),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
+      // Fondo muy sutil para que resalten las tarjetas blancas
+      backgroundColor: const Color(0xFFF0F8FF), 
+      body: Padding(
+        padding: const EdgeInsets.all(12.0),
+        // Cuadrícula dinámica: 2 columnas, 7 filas (14 items)
+        child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2, // 2 Columnas
+            childAspectRatio: 0.75, // Ajusta proporción Alto/Ancho de la tarjeta
+            crossAxisSpacing: 12,
+            mainAxisSpacing: 12,
+          ),
+          itemCount: nombresProductos.length, // 14
+          itemBuilder: (context, index) {
+            // Construimos cada tarjeta de producto
+            return TarjetaProductoLala(
+              nombre: nombresProductos[index],
+              urlImagen: urlsImagenesLala[index],
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+// --- WIDGET PERSONALIZADO PARA CADA TARJETA ---
+
+class TarjetaProductoLala extends StatelessWidget {
+  final String nombre;
+  final String urlImagen;
+
+  const TarjetaProductoLala({
+    super.key,
+    required this.nombre,
+    required this.urlImagen,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.white,
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
+          children: [
+            // ÁREA DE IMAGEN (Arriba, expandida para ocupar espacio)
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey[50], // Fondo sutil para la imagen
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  // *** AQUÍ ESTÁ LA MAGIA DE LA RED ***
+                  child: Image.network(
+                    urlImagen,
+                    // contain: Muestra la imagen completa sin recortar
+                    fit: BoxFit.contain, 
+                    // Mostramos un cargando mientras descarga
+                    loadingBuilder: (context, child, loadingProgress) {
+                      if (loadingProgress == null) return child; // Imagen cargada
+                      return const Center(
+                        child: CircularProgressIndicator(strokeWidth: 2), // Cargando...
+                      );
+                    },
+                    // Si la URL falla (p.ej. sin internet), mostramos un icono de error
+                    errorBuilder: (context, error, stackTrace) => Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.broken_image, size: 40, color: Colors.grey[400]),
+                        const SizedBox(height: 5),
+                        Text("Error de red", style: TextStyle(color: Colors.grey[500], fontSize: 10)),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 10),
+
+            // NOMBRE DEL PRODUCTO (Abajo, centrado y en negrita)
             Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+              nombre,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+                color: Colors.black87,
+              ),
+              textAlign: TextAlign.center,
+              maxLines: 1, // Limita a una línea para mantener orden
+              overflow: TextOverflow.ellipsis, // Si es muy largo, pone "..."
+            ),
+            
+            const SizedBox(height: 4),
+            
+            const Text(
+              "Producto Lala",
+              style: TextStyle(fontSize: 12, color: Colors.blueGrey),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
